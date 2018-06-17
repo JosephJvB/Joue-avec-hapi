@@ -1,39 +1,14 @@
-const { server } = require('hapi') // https://github.com/hapijs/hapi
+const config = require('./config')
+const init = require('./init')
 
-// setup
-const app = server({
-  port: 6969,
-  host: 'localhost'
-})
+// START
+init(config)
 
-async function init () {
-
-  await app.register({
-    plugin: require('hapi-pino'), // https: //github.com/pinojs/hapi-pino
-    options: {
-      prettyPrint: true,
-      logEvents: ['onPostStart', 'onPostStop', 'response', 'request-error'] // all events
-    }
-  })
-
-  await app.start()
-    // hapi-pino logging start nicely already :)
-    // .then(() => console.log(`UP2 G? ${app.info.uri}`))
-
-}
-
-init()
-
-// error handler
+// Catch things-handler
 process.on('unhandledRejection', (ERR) => {
-  console.log('BIG SUCC', ERR)
-  process.exit(1)
+	console.error('HOWZAT', ERR)
+	process.exit(1)
 })
-
-
-// hapi 'gettingStarted' runs you through some server routing, which is interesting
-// But it aint for me yo
-
 
 /*
 

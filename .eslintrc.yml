@@ -1,0 +1,37 @@
+env:
+  browser: true
+  es6: true
+extends: 'airbnb'
+parserOptions:
+  sourceType: module
+rules:
+  global-require:
+    - warn
+  indent:
+    - error
+    - tab
+  linebreak-style:
+    - off
+    - unix
+  quotes:
+    - warn
+    - single
+  semi:
+    - off
+    - never
+  padded-blocks:
+    - off
+    - always
+  no-tabs:
+    - off
+    - always
+  comma-dangle:
+    - warn
+    - never
+  no-unused-vars: 
+    - warn
+    - vars: all
+      args: after-used
+  object-curly-spacing:
+    - warn
+    - always
