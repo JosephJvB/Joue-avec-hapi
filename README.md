@@ -35,6 +35,19 @@ About method-keys
 - *Your server method function should return a valid result or throw an error if one occurs.*
 - options.cashe, options.generateKey, options.bind
 
+How do I call server methods.
+```
+server.methods.name()
+```
+
+SO
+
+I want to export some server object, and put that as an extra argument in Redux-Thunk so I can call server methods from the client.
+https://github.com/reduxjs/redux-thunk
+```
+applyMiddleware(thunk.withExtraArgument({ api, whatever }))
+```
+
 ----
 
 ## Packages :)

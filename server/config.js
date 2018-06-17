@@ -1,5 +1,7 @@
 const Hapi = require('hapi') // https://github.com/hapijs/hapi
 
+const { add, subtract } = require('./methods')
+
 module.exports = {
 	logger: {
 		plugin: require('hapi-pino'), // https: //github.com/pinojs/hapi-pino
@@ -9,7 +11,10 @@ module.exports = {
 			// log all events
 		}
 	},
-	methods: [],
+	methods: [
+		add,
+		subtract
+	],
 	server: Hapi.server({
 		port: 6969,
 		host: 'localhost'

@@ -3,16 +3,16 @@ async function init({ logger, methods, server }) {
 	await server.register(logger)
 
 	if (methods) {
-		if (!(methods instanceof Array)) {
+		// apply methods if valid, warn if not
+		if (methods instanceof Array) {
+			server.method(methods)
+		} else {
 			console.warn(`Expect server methods to be 'Array'\nReceived '${methods}'`)
 		}
-		server.method(methods)
 	}
 
 	await server.start()
-	// hapi-pino logging nicely already :)
-	// .then(() => console.log('UP2 G?', app))
-
+	// .then(() => console.log('HIOYOO', server.methods.add(1)))
 }
 
 module.exports = init
