@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Sock it to me</title>
+  </head>
+  <body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io('http://localhost:4000');
+
+      socket.on('PING', function (data) {
+        console.log('PING', data);
+        return socket.emit('PONG', {
+          to: 'server',
+          from: 'client',
+        });
+      });
+    </script>
+  </body>
+</html>
